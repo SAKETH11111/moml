@@ -1,3 +1,4 @@
-# Ignore all data artifacts by default.
+# Data files are tracked via DVC. Store manifests only.
 *
+!.gitignore
 !.gitkeep

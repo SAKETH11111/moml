@@ -1,7 +1,0 @@
-# Auto-generated reference requirements.
-# Regenerate via: poetry export --without-hashes -f requirements.txt > requirements.txt
-numpy>=1.26,<2.0
-pandas>=2.2,<3.0
-torch>=2.3,<2.4
-torch-geometric>=2.5,<2.6
-rdkit-pypi>=2024.3.5,<2025.0
