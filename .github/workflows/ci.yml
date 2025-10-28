@@ -1,0 +1,55 @@
+name: Lint and Test
+
+on:
+  push:
+    branches:
+      - main
+      - "dev/**"
+  pull_request:
+    branches:
+      - main
+      - "dev/**"
+
+jobs:
+  quality:
+    name: Lint & Test
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          version: "1.8.3"
+          virtualenvs-create: true
+          virtualenvs-in-project: true
+
+      - name: Cache virtualenv
+        uses: actions/cache@v4
+        with:
+          path: .venv
+          key: venv-${{ runner.os }}-py310-${{ hashFiles('poetry.lock', 'pyproject.toml') }}
+          restore-keys: |
+            venv-${{ runner.os }}-py310-
+            venv-
+
+      - name: Install dependencies
+        run: |
+          poetry install --no-interaction --extras "dev docs simulation"
+
+      - name: Run Ruff
+        run: poetry run ruff check momlca tests
+
+      - name: Run mypy
+        run: poetry run mypy momlca
+
+      - name: Run pytest
+        run: poetry run pytest --maxfail=1 --disable-warnings

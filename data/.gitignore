@@ -1,0 +1,4 @@
+# Ignore all data artifacts by default.
+*
+!/.gitignore
+!/.gitkeep
