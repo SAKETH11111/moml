@@ -1,0 +1,21 @@
+site_name: "MoML-CA"
+site_description: "Molecular Machine Learning for Chemical Automation"
+site_url: ""
+repo_url: "https://github.com/org/moml-ca"
+repo_name: "org/moml-ca"
+
+theme:
+  name: "material"
+
+nav:
+  - Home: index.md
+  - Roadmap: roadmap.md
+
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - footnotes
+  - tables
+  - attr_list
+  - def_list
