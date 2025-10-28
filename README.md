@@ -2,7 +2,7 @@
 
 MoML-CA (Molecular Machine Learning for Chemical Automation) is an open research
 platform for building end-to-end molecular modeling pipelines that unify data
-engineering, representation learning, simulation, and automated decision making.
+engineering, representation learning, simulation, and automated decision-making.
 The initial release lays the groundwork for collaborative development across
 scientists, engineers, and product teams who work on chemistry-aware machine
 learning systems.
@@ -27,7 +27,7 @@ vision above are welcome through pull requests (see [Contributing](#contributing
 
 ## Repository Layout
 
-```
+```text
 moml-ca/
 ├── configs/                  # Hydra-style config templates and registries
 │   ├── base.yaml

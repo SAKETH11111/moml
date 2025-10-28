@@ -17,6 +17,7 @@ def _build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--log-level",
         default="INFO",
+        choices=["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"],
         help="Logging threshold (default: %(default)s).",
     )
     parser.add_argument(
@@ -32,11 +33,11 @@ def main(argv: Sequence[str] | None = None) -> int:
     parser = _build_parser()
     args = parser.parse_args(argv)
 
-    configure_logging(level=args.log_level)
-
     if args.version:
         print(f"MoML-CA {__version__}")
         return 0
+
+    configure_logging(level=args.log_level)
 
     parser.print_help()
     return 0

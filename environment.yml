@@ -12,7 +12,7 @@ dependencies:
   - numpy>=1.26,<2.0
   - pandas>=2.2,<3.0
   - scipy>=1.11,<2.0
-  - rdkit
+  - rdkit>=2024.03
   - pip:
       - torch-geometric>=2.5,<2.6
       - simpy>=4.1.1,<5.0
@@ -24,3 +24,4 @@ dependencies:
       - ruff>=0.6.8,<0.8
       - mypy>=1.10,<2.0
       - pre-commit>=3.7,<4.0
+      - packaging>=24.0,<25.0
